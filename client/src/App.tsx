@@ -1,12 +1,39 @@
+import { useEffect, useState } from "react";
+import { NewExchangeModal } from "./components/NewExchangeModal";
+import axios from "axios";
+
 function App() {
+  const [exchangeModal, setExchangeModal] = useState(false);
+  const [exchanges, setExchanges] = useState([]);
+
+  const fetchExchanges = async () => {
+    const res = await axios.get(`${URL}/exchanges`);
+    setExchanges(res.data.exchanges);
+  };
+  useEffect(() => {
+    fetchExchanges();
+  }, []);
+
   return (
     <div>
       <div className="h-[20vh] bg-header_background flex justify-center">
         <div className="flex flex-row justify-between w-[80vw] mt-[5vh]">
           <span className="text-white">logo</span>
-          <button className="bg-buttonregister_background text-white rounded-md w-[152px] h-[52px]">
-            New Transaction
-          </button>
+          <div>
+            <button
+              onClick={() => {
+                setExchangeModal(true);
+              }}
+              className="bg-buttonregister_background text-white rounded-md w-[152px] h-[52px]"
+            >
+              <span>New Exchange</span>
+            </button>
+            <NewExchangeModal
+              isActive={exchangeModal}
+              setIsActive={setExchangeModal}
+              setExchanges={setExchanges}
+            />
+          </div>
         </div>
       </div>
       <div className="bg-main_background h-[80vh] w-[100vw]">
