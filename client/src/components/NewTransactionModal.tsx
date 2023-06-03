@@ -45,10 +45,10 @@ export function NewTransactionModal() {
         </div>
         <div className="flex justify-center items-center p-0 gap-4 flex-row">
           <button className="bg-button_background rounded-md w-[211.5px] py-3 text-white">
-            👍 Entry
+            👍 Income
           </button>
           <button className="bg-button_background rounded-md w-[211.5px] py-3 text-white">
-            👎 Ouput
+            👎 Expenditure
           </button>
         </div>
         <div className="flex justify-center items-center gap-2.5 ">
