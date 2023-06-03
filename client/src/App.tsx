@@ -11,17 +11,17 @@ function App() {
       </div>
       <div className="bg-main_background h-[80vh] w-[100vw]">
         <div className="flex flex-row justify-center items-center gap-4">
-          <div className="flex flex-col p-6 gap-4 w-[352px] h-[137px] rounded-md bg-card_background">
-            <span>Entries</span>
-            <span className="text-2xl">R$Cheiro de sexo</span>
+          <div className="flex flex-col p-6 gap-4 w-[352px] h-[137px] rounded-md bg-card_background top-[-40px]">
+            <span className="text-white">Entries</span>
+            <span className="text-2xl text-white">R$Cheiro de sexo</span>
           </div>
           <div className="flex flex-col p-6 gap-4 w-[352px] h-[137px] rounded-md bg-card_background">
-            <span>Expenditures</span>
-            <span className="text-2xl">R$Cheiro de sexo</span>
+            <span className="text-white">Expenditures</span>
+            <span className="text-2xl text-white">R$Cheiro de sexo</span>
           </div>
           <div className="flex flex-col p-6 gap-4 w-[352px] h-[137px] rounded-md bg-green_card justify-center">
-            <span>Total</span>
-            <span className="text-2xl">R$Cheiro de sexo</span>
+            <span className="text-white">Total</span>
+            <span className="text-2xl text-white">R$Cheiro de sexo</span>
           </div>
         </div>
         <div className="flex flex-row justify-center items-center gap-4 p-4">
@@ -30,7 +30,7 @@ function App() {
             type="text"
           />
           <button className="w-[150px] h-[50px] flex items-center justify-center border border-green-400 rounded-md">
-            <span className="text-green-400">oi</span>
+            <span className="text-green-400">Buscar</span>
           </button>
         </div>
       </div>
