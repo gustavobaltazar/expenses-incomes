@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { NewExchangeModal } from "./components/NewExchangeModal";
 import axios from "axios";
 import { NumberFormat } from "./utils/NumberFormat";
+import logo from "./assets/logo.png";
 
 function App() {
   const [exchangeModal, setExchangeModal] = useState(false);
@@ -52,16 +53,18 @@ function App() {
           setExchanges={setExchanges}
         />
         <div className="flex flex-row justify-between w-[80vw] mt-[5vh]">
-          <span className="text-white">logo</span>
-          <div className="">
-            <button
-              onClick={() => {
-                setExchangeModal(true);
-              }}
-              className="bg-buttonregister_background text-white rounded-md w-[152px] h-[52px]"
-            >
-              <span>New Exchange</span>
-            </button>
+          <div className="flex items-center justify-between w-[100vw]">
+            <img className="w-[150px]" src={logo} alt="sexo" />
+            <div className="">
+              <button
+                onClick={() => {
+                  setExchangeModal(true);
+                }}
+                className="bg-buttonregister_background text-white rounded-md w-[152px] h-[52px]"
+              >
+                <span>New Exchange</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -70,14 +73,14 @@ function App() {
         <div className="flex flex-row justify-center items-center gap-4 pb-4">
           <div className="flex flex-col p-6 gap-4 w-[352px] h-[137px] rounded-md bg-card_background">
             <span className="text-text_classic">Entries</span>
-            <span className="text-2xl text-white">
-              {NumberFormat.format(countTotalIncomes())}
+            <span className="text-2xl text-green-500">
+              + {NumberFormat.format(countTotalIncomes())}
             </span>
           </div>
           <div className="flex flex-col p-6 gap-4 w-[352px] h-[137px] rounded-md bg-card_background">
             <span className="text-text_classic">Expenditures</span>
-            <span className="text-2xl text-white">
-              {NumberFormat.format(countTotalExpenditures())}
+            <span className="text-2xl text-red-500">
+              - {NumberFormat.format(countTotalExpenditures())}
             </span>
           </div>
           <div className="flex flex-col p-6 gap-4 w-[352px] h-[137px] rounded-md bg-green_card">
