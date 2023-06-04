@@ -12,7 +12,7 @@ const PORT = 4000;
 const createExchangeTable = async () => {
   db.serialize(() => {
     db.exec(
-      "CREATE TABLE IF NOT EXISTS Exchange (exchangeId INTEGER PRIMARY KEY AUTOINCREMENT, description TEXT, dateExchange DATE, category TEXT, typeExchange TEXT);"
+      "CREATE TABLE IF NOT EXISTS Exchange (exchangeId INTEGER PRIMARY KEY AUTOINCREMENT, description TEXT, price NUMBER, dateExchange TEXT, category TEXT, typeExchange TEXT);"
     );
   });
 };
@@ -32,12 +32,16 @@ app.get("/exchanges", async (req, res) => {
 });
 
 app.post("/new-exchange", async (req, res) => {
+  console.log("REQ body: ", req.body);
+  let date = `${new Date().getDate()}/${new Date().getMonth()}/${new Date().getFullYear()}`;
+  console.log("data:", date);
   db.serialize(() => {
     db.run(
-      "INSERT INTO Transaction (description, dateExchange, category, typeExchange) VALUES (?,?,?,?);",
+      "INSERT INTO Exchange (description, price, dateExchange, category, typeExchange) VALUES (?,?,?,?,?);",
       [
         req.body.description,
-        Date.now(),
+        req.body.price,
+        date,
         req.body.category,
         req.body.typeExchange,
       ],

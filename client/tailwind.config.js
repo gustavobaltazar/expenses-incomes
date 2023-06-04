@@ -12,6 +12,7 @@ export default {
         main_background: "#29292E",
         card_background: "#323238",
         green_card: "#015F43",
+        text_classic: "#C4C4CC",
       },
     },
   },
